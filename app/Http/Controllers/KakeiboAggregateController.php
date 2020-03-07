@@ -27,9 +27,10 @@ class KakeiboAggregateController extends Controller
                 }
         }
 
-        $kakeiboInfoList = KakeiboInfo::whereBetween('buy_date', [$input['aggregateStart'], $input['aggregateStart']])->get();
+        $kakeiboInfoList = KakeiboInfo::whereBetween('buy_date', [$input['aggregateStart'], $input['aggregateEnd']])->get();
 
-        $kakeiboInfoGroupByCategoryList = KakeiboInfo::select(DB::raw('buy_category, sum(buy_price) as sum_price'))->groupBy('buy_category')->get();
+        $kakeiboInfoGroupByCategoryList = KakeiboInfo::select(DB::raw('buy_category, sum(buy_price) as sum_price'))
+                                                            ->whereBetween('buy_date', [$input['aggregateStart'], $input['aggregateEnd']])->groupBy('buy_category')->get();
 
         return view('kakeibo_aggregate_result', compact('kakeiboInfoList', 'kakeiboInfoGroupByCategoryList'));
     }

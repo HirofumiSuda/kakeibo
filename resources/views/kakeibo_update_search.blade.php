@@ -10,24 +10,24 @@
     </head>
     <body>
         <div>
-          <p>家計簿情報集計</p>
+          <p>家計簿情報修正検索</p>
         </div>
         <div>
-          <form action="{{url('/kakeibo_aggregate_result')}}" method="post">
+          <form action="{{url('/kakeibo_update_input')}}" method="post">
             @csrf
             <table>
               <tr>
                 <td>購入日<p style="display:inline">*</p></td>
                 <td>
                   <span style="display: ruby;">
-                    <input name="aggregateStart" id="aggregateDateStart" value="2020/03/01" autocomplete="off"></input>
+                    <input name="updateDateStart" id="updateDateStart" value="2020/03/01" autocomplete="off"></input>
                     <p>～</p>
-                    <input name="aggregateEnd" id="aggregateDateEnd" value="2020/03/31" autocomplete="off"></input>
+                    <input name="updateDateEnd" id="updateDateEnd" value="2020/03/31" autocomplete="off"></input>
                   </span>
                 </td>
               </tr>
             </table>
-            <button type="submit">集計</button>
+            <button type="submit">検索</button>
           </form>
           <button>クリア</button>
           <button onclick="location.href='{{url('/kakeibo_top')}}'">Top</button>
@@ -35,14 +35,14 @@
         <script>
            var pickerStart = new Pikaday(
            	{
-           		field: document.getElementById('aggregateDateStart'),
+           		field: document.getElementById('updateDateStart'),
            		format: 'YYYY/MM/DD',
            		defaultDate: new Date()
            	}
            );
            var pickerEnd = new Pikaday(
            	{
-           		field: document.getElementById('aggregateDateEnd'),
+           		field: document.getElementById('updateDateEnd'),
            		format: 'YYYY/MM/DD',
            		defaultDate: new Date()
            	}

@@ -11,8 +11,9 @@
         </div>
         <div>
           <p>登録成功だぬん。</p>
-          <button onclick="location.href='{{url('/kakeibo_regist_input')}}'">登録画面</button>
+          <button onclick="location.href='{{url('/kakeibo_regist_input_init')}}'">登録画面</button>
           <button onclick="location.href='{{url('/kakeibo_top')}}'">Top</button>
         </div>
+        <img src="{{asset('./public/assets/img/kawauso_1.jpg')}}">
     </body>
 </html>

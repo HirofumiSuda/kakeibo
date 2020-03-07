@@ -11,13 +11,14 @@
         <div>
           <p>家計簿</p>
         </div>
+        <button onclick="location.href='{{url('/kakeibo_top')}}'">Top</button>
         <div>
           <canvas id="kakeiboChart" width="600" height="300"></canvas>
           <p>集計一覧</p>
-          <table>
+          <table class="table table-sm table-hover">
             <tr>
-              <th>カテゴリ</th>
-              <th>金額</th>
+              <th scope="col">カテゴリ</th>
+              <th scope="col">金額</th>
             </tr>
             @foreach ($kakeiboInfoGroupByCategoryList as $kakeiboInfoGroupByCategory)
             <tr>
@@ -29,14 +30,14 @@
         </div>
         <div>
           <p>全データ</p>
-          <table>
+          <table class="table table-sm table-hover">
             <tr>
-              <th>購入日</th>
-              <th>カテゴリ</th>
-              <th>商品</th>
-              <th>金額</th>
-              <th>店舗</th>
-              <th>備考</th>
+              <th scope="col">購入日</th>
+              <th scope="col">カテゴリ</th>
+              <th scope="col">商品</th>
+              <th scope="col">金額</th>
+              <th scope="col">店舗</th>
+              <th scope="col">備考</th>
             </tr>
             @foreach ($kakeiboInfoList as $kakeiboInfo)
             <tr>

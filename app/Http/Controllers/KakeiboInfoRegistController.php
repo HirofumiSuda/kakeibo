@@ -10,7 +10,8 @@ class KakeiboInfoRegistController extends Controller
     public function regist(Request $request)
     {
         $input = $request->input();
-
+        
+        $message = "";
         #必須チェック
         $required = "";
         if ($input['buyDate'] == "") {
@@ -28,7 +29,9 @@ class KakeiboInfoRegistController extends Controller
             }
             $required .= "金額";
         }
-        $message = $required . "は必須項目だぬん。";
+        if(!empty($required)){
+            $message = $required . "は必須項目だぬん。";
+        }
 
         #形式チェック
         if (!empty($input['buyDate'])) {
@@ -40,8 +43,17 @@ class KakeiboInfoRegistController extends Controller
                 $message .= "購入日が存在しない日付だぬん。";
             }
         }
-        $message = nl2br($message, false);
+        if (!empty($input['buyPrice'])) {
+            $reg = preg_match('/^[0-9]+$/', $input['buyPrice']);
+            if ($reg != 1) {
+                if(!$message == ""){
+                    $message .= "\n";
+                }
+                $message .= "金額は1～9(半角)で入力するぬん。";
+            }
+        }
         if (!empty($message)) {
+            $message = nl2br($message, false);
             return view('kakeibo_regist_failuer', compact('message'));
         }
         #登録処理
