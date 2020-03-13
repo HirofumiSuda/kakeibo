@@ -5,17 +5,21 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="{{url('./assets/js/Chart.min.js')}}"></script>
         <script src="{{url('./assets/js/chartjs-plugin-colorschemes.min.js')}}"></script>
-        <link rel="stylesheet" href="{{url('/assets/css/bootstrap.min.css')}}">
+        <link rel="stylesheet" href="{{url('/assets/css/kakeibo.css')}}">
+        <link rel="stylesheet" href="{{url('/assets/css/uikit.min.css')}}">
+        <script src="{{url('/assets/js/uikit.min.js')}}"></script>
+        <script src="{{url('/assets/js/uikit-icons.min.js')}}"></script>
     </head>
     <body>
+    <div class="uk-background-muted uk-padding uk-panel kakeibo-background">
         <div>
-          <p>家計簿</p>
+          <span class="uk-text-large uk-heading-bullet">家計簿情報集計結果</span>
         </div>
-        <button onclick="location.href='{{url('/kakeibo_top')}}'">Top</button>
+        <button class="uk-button uk-button-default uk-button-small" onclick="location.href='{{url('/kakeibo_top')}}'">Top</button>
         <div>
           <canvas id="kakeiboChart" width="600" height="300"></canvas>
-          <p>集計一覧</p>
-          <table class="table table-sm table-hover">
+          <span class="uk-text-small uk-heading-bullet">集計一覧</span>
+          <table class="uk-table uk-table-striped">
             <tr>
               <th scope="col">カテゴリ</th>
               <th scope="col">金額</th>
@@ -29,8 +33,8 @@
           </table>
         </div>
         <div>
-          <p>全データ</p>
-          <table class="table table-sm table-hover">
+          <span class="uk-text-small uk-heading-bullet">全データ</span>
+          <table class="uk-table uk-table-striped">
             <tr>
               <th scope="col">購入日</th>
               <th scope="col">カテゴリ</th>
@@ -51,7 +55,8 @@
             @endforeach
           </table>
         </div>
-        <button onclick="location.href='{{url('/kakeibo_top')}}'">Top</button>
+        <button class="uk-button uk-button-default uk-button-small" onclick="location.href='{{url('/kakeibo_top')}}'">Top</button>
+    </div>
             <script>
               var categoryList = [];
               var priceList = [];
@@ -65,15 +70,18 @@
               data: {
                   labels: categoryList,
                   datasets: [{
-                      label: '得票数',
+                      label: '家計簿',
                       data: priceList,
                       borderWidth: 1
                   }]
               },
               options: {
-                  responsive: false,
+                  responsive: true,
                   colorschemes: {
                     scheme: 'brewer.Paired12'
+                  },
+                  legend: {
+              		position: 'right'
                   }
               }
            });
