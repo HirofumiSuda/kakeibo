@@ -17,7 +17,7 @@
         </div>
         <button class="uk-button uk-button-default uk-button-small" onclick="location.href='{{url('/kakeibo_top')}}'">Top</button>
         <div>
-          <canvas id="kakeiboChart" width="600" height="300"></canvas>
+          <canvas id="kakeiboChart" height="200" witdh="200"></canvas>
           <span class="uk-text-small uk-heading-bullet">集計一覧</span>
           <table class="uk-table uk-table-striped">
             <tr>
@@ -54,8 +54,10 @@
             </tr>
             @endforeach
           </table>
+          <div style="margin-top:5px;">
+            <button class="uk-button uk-button-default uk-button-small" onclick="location.href='{{url('/kakeibo_top')}}'">Top</button>
+          </div>
         </div>
-        <button class="uk-button uk-button-default uk-button-small" onclick="location.href='{{url('/kakeibo_top')}}'">Top</button>
     </div>
             <script>
               var categoryList = [];
@@ -76,7 +78,8 @@
                   }]
               },
               options: {
-                  responsive: true,
+                  responsive: false,
+              	  
                   colorschemes: {
                     scheme: 'brewer.Paired12'
                   },

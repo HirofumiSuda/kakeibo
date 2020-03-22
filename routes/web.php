@@ -10,7 +10,20 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+#Top画面
+Route::get('/', function () {
+    return view('kakeibo_login');
+});
+#ログイン
+Route::post('/login', 'LoginController@login');
+#アカウント作成
+Route::post('/account_create', 'AccountCreateController@create');
+#家族情報登録
+Route::post('/family_info_update', 'FamilyInfoUpdateController@update');
+#Top画面
+Route::get('/kakeibo_account_create', function () {
+    return view('kakeibo_account_create');
+});
 #Top画面
 Route::get('/kakeibo_top', function () {
     return view('kakeibo_top');
@@ -25,7 +38,6 @@ Route::get('/kakeibo_regist_input', function () {
 Route::get('/kakeibo_aggregate', function () {
     return view('kakeibo_aggregate');
 });
-
 #登録処理
 Route::post('/kakeibo_regist', 'KakeiboInfoRegistController@regist');
 #集計処理

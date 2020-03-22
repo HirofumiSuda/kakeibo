@@ -10,6 +10,10 @@ class KakeiboAggregateController extends Controller
 {
     public function aggregate(Request $request)
     {
+        if($request->session()->get('account_id') == null){
+            $message = 'ログインしてください。';
+            return view('/kakeibo_login', compact('message'));
+        }
         $input = $request->input();
 
         #必須チェック

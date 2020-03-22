@@ -9,7 +9,10 @@ class KakeiboDeleteController extends Controller
 {
     public function delete(request $request)
     {
-
+        if($request->session()->get('account_id') == null){
+            $message = 'ログインしてください。';
+            return view('/kakeibo_login', compact('message'));
+        }
         $input = $request->input();
 
         $resultList = [];

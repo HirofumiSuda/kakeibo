@@ -12,7 +12,7 @@
         <script src="{{url('/assets/js/uikit-icons.min.js')}}"></script>
     </head>
     <body>
-    <div class="uk-background-muted uk-padding uk-panel kakeibo-background">
+      <div class="uk-background-muted uk-padding uk-panel kakeibo-background">
         <div>
           <span class="uk-text-large uk-heading-bullet">家計簿情報集計</span>
         </div>
@@ -38,7 +38,7 @@
             <button class="uk-button-default uk-button-small" onclick="location.href='{{url('/kakeibo_top')}}'">Top</button>
           </div>
         </div>
-    </div>
+      </div>
         <script>
            var pickerStart = new Pikaday(
            	{

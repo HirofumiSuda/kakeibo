@@ -36,3 +36,25 @@ body > .kakeibo-background {
    margin-top:5px;
    margin-bottom:5px;
 }
+
+.kakeibo-input-buy-date{
+    min-width:110px;
+}
+.kakeibo-input-buy-category{
+    min-width:140px;
+
+}
+.kakeibo-input-buy-item{
+    min-width:160px;
+
+}
+.kakeibo-input-buy-price{
+    min-width:100px;
+
+}
+.kakeibo-input-buy-shop{
+    min-width:220px;
+}
+.kakeibo-input-buy-remarks{
+    min-width:300px;
+}
